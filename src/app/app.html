@@ -1,0 +1,37 @@
+Título <br />
+<h1>{{ texto }}</h1>
+<h2>{{ 'o nome deste projeto é ' + title() }}</h2>
+<br />
+
+<h3>Número aleatório entre 0 e 100 => {{ numero }}</h3>
+<br />
+
+<button (click)="gerarNumeroAleatorio()">Gerar Número Aleatório</button>
+
+<div>
+  <br />
+  Digite um valor para o número aleatório
+  <input [value]="numero" />
+</div>
+
+<div>
+  <br />
+  Digite um valor para o número aleatório 2
+  <input [(ngModel)]="numero" type="number" />
+</div>
+
+<br />
+
+<!-- Condicional exibida quando o número é maior que 50 -->
+@if (numero > 50) {
+  <h1>Número gerado é MAIOR que 50 !!!!!</h1>
+}
+
+<!-- Lista com o histórico de números gerados -->
+@for (numeroExemplo of vetNumerosGerados; track numeroExemplo) {
+  <div>
+    Este foi o {{ ' ' + ($index + 1) + 'o. ' }} numero gerado {{ ': ' + numeroExemplo }}
+  </div>
+} @empty {
+  <h1> Não há itens na lista </h1>
+}
